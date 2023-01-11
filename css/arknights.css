@@ -1240,147 +1240,154 @@ nav li {
     width: 100%;
   }
 }
-.search .navItem:not(#search-header) {
-  transform: translateX(-100%);
-}
-.search-popup {
-  left: 0;
-  transform: translateX(-100%);
-}
-.search-popup.open {
-  transform: translateX(0);
-}
-@media (min-width: 769px) {
-  .up .closed .search-popup {
-    right: 200px;
+@media (min-width: 769, max-width 1023px) {
+  .search-popup {
+    left: 212px;
   }
 }
 @media (min-width: 1024px) {
-  #search-header input {
-    padding: 0 0 0 10px;
+  .search .navItem:not(#search-header) {
+    transform: translateX(100%);
   }
-  #search-header input::placeholder {
-    text-align: right;
+  .search-popup {
+    right: 0;
+    transform: translateX(100%);
+  }
+  .search-popup.open {
+    transform: translateX(0);
+  }
+  .search-popup.open {
+    transform: translateX(0);
+  }
+  #search-header input {
+    padding: 0 10px 0 0;
   }
   #search-header .navItemTitle {
-    padding-right: 10px;
+    padding-left: 10px;
+    right: 10px;
   }
   #search-header .navItemTitle:hover::after {
     border-color: #2bf;
   }
   #search-header .navItemTitle::after {
-    border-left: 4px solid #fff;
-    left: 0;
+    border-right: 4px solid #fff;
+    right: 0;
   }
-}
 @-moz-keyframes get-in {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
 }
 @-webkit-keyframes get-in {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
 }
 @-o-keyframes get-in {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
 }
 @keyframes get-in {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
 }
 @-moz-keyframes get-out {
-  0% {
-    width: 180%;
-  }
-  100% {
-    width: 100%;
-  }
+    0% {
+      width: 180%;
+      right: 80%;
+    }
+    100% {
+      width: 100%;
+      right: 0;
+    }
 }
 @-webkit-keyframes get-out {
-  0% {
-    width: 180%;
-  }
-  100% {
-    width: 100%;
-  }
+    0% {
+      width: 180%;
+      right: 80%;
+    }
+    100% {
+      width: 100%;
+      right: 0;
+    }
 }
 @-o-keyframes get-out {
-  0% {
-    width: 180%;
-  }
-  100% {
-    width: 100%;
-  }
+    0% {
+      width: 180%;
+      right: 80%;
+    }
+    100% {
+      width: 100%;
+      right: 0;
+    }
 }
 @keyframes get-out {
-  0% {
-    width: 180%;
-  }
-  100% {
-    width: 100%;
+    0% {
+      width: 180%;
+      right: 80%;
+    }
+    100% {
+      width: 100%;
+      right: 0;
+    }
+}
+}
+@media (max-width: 1023px) {
+  #search-header {
+    padding-right: 4.5em;
   }
 }
-@media (min-width: 769px) and (max-width: 1023px) {
-  #search-header {
-    padding-left: 4.5em;
-  }
+aside {
+  order: -1;
+}
+header {
+  order: 1;
 }
 @media (min-width: 769px) {
   header {
-    left: 0;
+    left: 212px;
+  }
+  .navBtn {
+    left: 1em;
   }
   aside {
-    right: 0;
-  }
-}
-@media (max-width: 1023px) {
-  .navContent {
-    padding-left: 0;
-    transform: translateX(-100%);
-  }
-  .navItem {
-    padding-left: 2.5em;
+    left: 0;
   }
 }
 @media (min-width: 992px, max-width 1919px) {
   aside {
-    padding: 0 25px 0 15px;
+    padding: 0 15px 0 25px;
   }
 }
 @media (min-width: 1024px) {
+  header {
+    left: unset;
+    right: 0;
+  }
   .navContent {
-    margin: 0 1.5em 0 0;
+    align-items: flex-end;
+    margin: 0 0 1.5em 0;
     transform: unset;
   }
   .navItem {
-    padding-left: 1.2em;
-  }
-  .navBlock {
-    text-align: right;
+    padding-right: 1.2em;
   }
   .navBlock .navItemTitle::after {
-    border-left: 4px solid;
-    left: 0px;
-  }
-  .navBlock:hover>.navItemTitle {
-    margin-left: 1em;
+    border-right: 4px solid;
   }
   .navBlock:hover::after {
     content: "";
@@ -1388,44 +1395,54 @@ nav li {
     width: 100%;
     position: absolute;
     top: 0;
-    left: 2em;
+    right: 2em;
+  }
+  .navBlock:hover .navItemTitle {
+    margin-left: -1em;
   }
   .navBlock>.navItemList {
-    left: calc(100% + 2em);
+    right: calc(100% + 2em);
   }
   .navItemList {
-    left: 100%;
+    right: 100%;
   }
   .navItemList .navItem {
-    padding-right: 1px;
+    padding-left: 1px;
   }
   .navItemList .navItemTitle {
-    padding-left: 0.8em;
-    padding-right: 0.5em;
+    padding-right: 0.8em;
+    padding-left: 0.5em;
   }
   .navItemList>.navItem>.navItemTitle:hover {
-    padding-left: 1.8em;
+    padding-right: 1.8em;
   }
 }
 @media (min-width: 1440px) {
   .navItem {
-    padding-left: 2.25em;
+    padding-right: 2.25em;
   }
   aside {
-    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 @media (min-width: 1920px) {
   .navItem {
-    padding-left: 5.25em;
+    padding-right: 5.25em;
   }
-  aside {
+  article {
     margin: 0 2.5%;
   }
 }
-@media (max-width: 1023px) and (min-width: 769px) {
+@media (min-width: 769px) and (max-width: 1023px) {
   article {
-    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .navContent {
+    padding-right: 0;
+    transform: translateX(-100%);
+  }
+  .navItem {
+    padding-right: 2.5em;
   }
 }
 @media (max-width: 1023px) {
