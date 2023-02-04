@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>初识RTOS | shuwengexia'blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search the blog","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy","copyFinish":"copied","expand":"expand"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="atom.xml" title="shuwengexia'blog" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search the blog" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>初识RTOS</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-02-04T07:19:27.000Z" id="date"> 2023-02-04</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-02-04T07:21:49.829Z" id="updated"> 2023-02-04</time></div></span></div></div><hr><div id="post-content"><h2 id="RTOS的简介及分类"><a href="#RTOS的简介及分类" class="headerlink" title="RTOS的简介及分类"></a>RTOS的简介及分类</h2><p>RTOS，即Real Time Operation System（实时操作系统）。</p>
+<p>常见的RTOS有国外的FreeRTOS、μC&#x2F;OS、RTX和国内的RT-Thread、Huawei LiteOS、AliOS-Things等。</p>
+<h2 id="如何学习RTOS"><a href="#如何学习RTOS" class="headerlink" title="如何学习RTOS"></a>如何学习RTOS</h2><ol>
+<li>利用别人移植好的系统，了解RTOS里面的API使用说明（即各个函数的作用），然后调用这些API实现自己想要的功能（浅薄、简单）</li>
+<li>阅读RTOS的源码，探究内核和每个组件的实现方式（有效、困难）</li>
+</ol>
+<h2 id="FreeRTOS简介"><a href="#FreeRTOS简介" class="headerlink" title="FreeRTOS简介"></a>FreeRTOS简介</h2><p>FreeRTOS是一个可裁剪的小型RTOS系统，其特点包括：</p>
+<ul>
+<li><p>FreeRTOS 的内核支持抢占式（高低优先级任务），合作式和时间片调度。</p>
+</li>
+<li><p>SafeRTOS （收费）衍生自 FreeRTOS，SafeRTOS 在代码完整性上相比 FreeRTOS更胜一筹。</p>
+</li>
+<li><p>提供了一个用于低功耗的 Tickless 模式。（将空闲任务闲置的外设时钟关闭）</p>
+</li>
+<li><p>系统的组件在创建时可以选择动态或者静态的 RAM，比如任务、消息队列、信号量、软件定时器等等</p>
+</li>
+<li><p>已经在超过 30 种架构的芯片上进行了移植。</p>
+</li>
+<li><p>FreeRTOS-MPU 支持Corex-M 系列中的 MPU 单元，如 STM32F407。</p>
+</li>
+<li><p>FreeRTOS 系统简单、小巧、易用，通常情况下内核占用 4k-9k 字节的空间。</p>
+</li>
+<li><p>高可移植性，代码主要 C 语言编写。</p>
+</li>
+<li><p>支持实时任务和协程(co-routines 也有称为合作式、协同程序，本教程均成为协程)</p>
+</li>
+<li><p>任务与任务、任务与中断之间可以使用任务通知、消息队列、二值信号量、数值型信号量、递归互斥信号量和互斥信号量进行通信和同步。</p>
+</li>
+<li><p>创新的事件组(或者事件标志)。</p>
+</li>
+<li><p>具有优先级继承特性的互斥信号量。（避免优先级翻转）</p>
+</li>
+<li><p>高效的软件定时器。（区别于硬件定时器）</p>
+</li>
+<li><p>强大的跟踪执行功能。</p>
+</li>
+<li><p>堆栈溢出检测功能。（通过宏定义进行编写，以及利用回调函数【钩子函数】）</p>
+</li>
+<li><p>任务数量不限。（理论上不限，但实际中受限于我们的ram大小）</p>
+</li>
+<li><p>任务优先级不限。（理论上不限，但实际中受限于我们的ram大小）</p>
+</li>
+</ul>
+<h2 id="如何获取FreeRTOS资源"><a href="#如何获取FreeRTOS资源" class="headerlink" title="如何获取FreeRTOS资源"></a>如何获取FreeRTOS资源</h2><ol>
+<li><p>在 <a href="www.freertos.org">官网</a> 获取，在里面可以下载其源码及其手册</p>
+</li>
+<li><p>在<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/freertos/files/FreeRTOS">托管网址</a>获取</p>
+</li>
+</ol>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="../../../01/12/CAN%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">CAN过滤器的基础知识 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="Catalog">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a target="_blank" rel="noopener" href="https://github.com/shuwengexia">shuwengexia</a></h1><div id="description"><p>Personal blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RTOS%E7%9A%84%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%88%86%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">RTOS的简介及分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0RTOS"><span class="toc-number">2.</span> <span class="toc-text">如何学习RTOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FreeRTOS%E7%AE%80%E4%BB%8B"><span class="toc-number">3.</span> <span class="toc-text">FreeRTOS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96FreeRTOS%E8%B5%84%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">如何获取FreeRTOS资源</span></a></li></ol></div></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>
