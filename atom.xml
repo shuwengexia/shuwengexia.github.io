@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-02-04T07:21:49.829Z</updated>
+  <updated>2023-02-06T08:17:34.627Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识UART</title>
+    <link href="http://example.com/2023/02/06/%E5%88%9D%E8%AF%86UART/"/>
+    <id>http://example.com/2023/02/06/%E5%88%9D%E8%AF%86UART/</id>
+    <published>2023-02-06T08:16:47.000Z</published>
+    <updated>2023-02-06T08:17:34.627Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="UART简介"><a href="#UART简介" class="headerlink" title="UART简介"></a>UART简介</h2><p>UART，即Universal Asynchronous Receiver Transmitter （通用异步收发器）。</p><p>是一种通用的串行、异步通信总线；</p><p>该总线有两条数据线，可以实现全双工的发送和接收；</p><p>在嵌入式系统中常用于主机与辅助设备之间的通信（主控制器和其他芯片或者外围设备通信时使用）</p><hr><p>ps：</p><ol><li><p>并行通信和串行通信</p><p>并行通信：将数据的多个位一次性发送，比如一个8位数据使用8根线进行传送</p><p>串行通信：将数据的多个位逐次发送，比如一个8位数据使用1根线依次进行传送</p></li><li><p>单工通信和双工通信</p><p>单工通信：发送器给接收器发送数据，接收器不能给发送器发送数据，单向的</p><p>双工通信：既可以发送器给接收器发送数据，也可以接收器给发送器发送数据，双向的</p><p>半双工：属于双工通信，但是发送数据过程不能同时进行</p><p>全双工：属于双工通信，但是发送数据过程可以同时进行</p></li><li><p>异步通信和同步通信</p><p>异步通信：收发双方时钟不同步</p><p>同步通信：收发双方使用同一个时钟基准</p></li></ol><hr><h2 id="波特率"><a href="#波特率" class="headerlink" title="波特率"></a>波特率</h2><p>波特率用于描述UART通信时的通信速度，其单位为bps(bit per second) ，即每秒钟传送的bit（二进制位）的数量</p><h2 id="UART帧格式"><a href="#UART帧格式" class="headerlink" title="UART帧格式"></a>UART帧格式</h2><p>空闲位：一直是高电平（即1）</p><p>起始位：第一个低电平位（即0）</p><p>数据位：8位，发送数据时先发送低位，例如：发送0x55（01010101）这个数据时，先发送低位1</p><p>校验位（可有可无）：校验数据的正确性，串口使用奇偶校验（别于和校验），当发送数据有偶数个1时，校验位上为1</p><p>停止位：1位&#x2F;1.5位&#x2F;2位，高电平，表示通信的停止</p><p>通信必须一个字节一个字节发送，每发送一个字节都是一个完整的过程，不能连续发送，防止累计误差的出现</p><h2 id="UART控制器"><a href="#UART控制器" class="headerlink" title="UART控制器"></a>UART控制器</h2><p>一般情况下处理器中都会集成UART控制器，我们使用UART进行通信时候只需对其内部的相关寄存器进行设置即可</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;UART简介&quot;&gt;&lt;a href=&quot;#UART简介&quot; class=&quot;headerlink&quot; title=&quot;UART简介&quot;&gt;&lt;/a&gt;UART简介&lt;/h2&gt;&lt;p&gt;UART，即Universal Asynchronous Receiver Transmitter （通用异</summary>
+      
+    
+    
+    
+    
+    <category term="通信协议" scheme="http://example.com/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>初识RTOS</title>

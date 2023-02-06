@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>初识UART | shuwengexia'blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search the blog","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy","copyFinish":"copied","expand":"expand"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="atom.xml" title="shuwengexia'blog" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search the blog" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>初识UART</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-02-06T08:16:47.000Z" id="date"> 2023-02-06</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-02-06T08:17:34.627Z" id="updated"> 2023-02-06</time></div></span></div></div><hr><div id="post-content"><h2 id="UART简介"><a href="#UART简介" class="headerlink" title="UART简介"></a>UART简介</h2><p>UART，即Universal Asynchronous Receiver Transmitter （通用异步收发器）。</p>
+<p>是一种通用的串行、异步通信总线；</p>
+<p>该总线有两条数据线，可以实现全双工的发送和接收；</p>
+<p>在嵌入式系统中常用于主机与辅助设备之间的通信（主控制器和其他芯片或者外围设备通信时使用）</p>
+<hr>
+<p>ps：</p>
+<ol>
+<li><p>并行通信和串行通信</p>
+<p>并行通信：将数据的多个位一次性发送，比如一个8位数据使用8根线进行传送</p>
+<p>串行通信：将数据的多个位逐次发送，比如一个8位数据使用1根线依次进行传送</p>
+</li>
+<li><p>单工通信和双工通信</p>
+<p>单工通信：发送器给接收器发送数据，接收器不能给发送器发送数据，单向的</p>
+<p>双工通信：既可以发送器给接收器发送数据，也可以接收器给发送器发送数据，双向的</p>
+<p>半双工：属于双工通信，但是发送数据过程不能同时进行</p>
+<p>全双工：属于双工通信，但是发送数据过程可以同时进行</p>
+</li>
+<li><p>异步通信和同步通信</p>
+<p>异步通信：收发双方时钟不同步</p>
+<p>同步通信：收发双方使用同一个时钟基准</p>
+</li>
+</ol>
+<hr>
+<h2 id="波特率"><a href="#波特率" class="headerlink" title="波特率"></a>波特率</h2><p>波特率用于描述UART通信时的通信速度，其单位为bps(bit per second) ，即每秒钟传送的bit（二进制位）的数量</p>
+<h2 id="UART帧格式"><a href="#UART帧格式" class="headerlink" title="UART帧格式"></a>UART帧格式</h2><p>空闲位：一直是高电平（即1）</p>
+<p>起始位：第一个低电平位（即0）</p>
+<p>数据位：8位，发送数据时先发送低位，例如：发送0x55（01010101）这个数据时，先发送低位1</p>
+<p>校验位（可有可无）：校验数据的正确性，串口使用奇偶校验（别于和校验），当发送数据有偶数个1时，校验位上为1</p>
+<p>停止位：1位&#x2F;1.5位&#x2F;2位，高电平，表示通信的停止</p>
+<p>通信必须一个字节一个字节发送，每发送一个字节都是一个完整的过程，不能连续发送，防止累计误差的出现</p>
+<h2 id="UART控制器"><a href="#UART控制器" class="headerlink" title="UART控制器"></a>UART控制器</h2><p>一般情况下处理器中都会集成UART控制器，我们使用UART进行通信时候只需对其内部的相关寄存器进行设置即可</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="../../04/%E5%88%9D%E8%AF%86RTOS/">初识RTOS Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="Catalog">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a target="_blank" rel="noopener" href="https://github.com/shuwengexia">shuwengexia</a></h1><div id="description"><p>Personal blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#UART%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">UART简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A2%E7%89%B9%E7%8E%87"><span class="toc-number">2.</span> <span class="toc-text">波特率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UART%E5%B8%A7%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">UART帧格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UART%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">UART控制器</span></a></li></ol></div></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

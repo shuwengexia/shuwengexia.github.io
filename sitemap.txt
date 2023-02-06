@@ -1,8 +1,10 @@
+http://example.com/2023/02/06/%E5%88%9D%E8%AF%86UART/
 http://example.com/2023/02/04/%E5%88%9D%E8%AF%86RTOS/
 http://example.com/2023/01/12/CAN%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/
 http://example.com/2023/01/11/hello-world/
 http://example.com/2023/01/11/test/
 http://example.com/
 http://example.com/tags/test/
-http://example.com/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0/
 http://example.com/tags/FreeRTOS/
+http://example.com/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0/
+http://example.com/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/
