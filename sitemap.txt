@@ -7,5 +7,5 @@ http://example.com/2023/01/11/test/
 http://example.com/
 http://example.com/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0/
 http://example.com/tags/test/
-http://example.com/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/
 http://example.com/tags/FreeRTOS/
+http://example.com/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/
