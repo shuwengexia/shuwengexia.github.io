@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-02-06T08:17:34.627Z</updated>
+  <updated>2023-02-10T08:46:53.315Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识IIC</title>
+    <link href="http://example.com/2023/02/10/%E5%88%9D%E8%AF%86IIC/"/>
+    <id>http://example.com/2023/02/10/%E5%88%9D%E8%AF%86IIC/</id>
+    <published>2023-02-10T08:45:35.000Z</published>
+    <updated>2023-02-10T08:46:53.315Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="IIC总线"><a href="#IIC总线" class="headerlink" title="IIC总线"></a>IIC总线</h1><h2 id="IIC总线简介"><a href="#IIC总线简介" class="headerlink" title="IIC总线简介"></a>IIC总线简介</h2><p>IIC总线是Philips公司在八十年代初推出的一种串行、半双工总线</p><p>主要用于近距离、低速的芯片之间的通信;</p><p>IIC总线有两根双向的信号线一根数据线SDA用于收发数据，一根时钟线SCL用于通信双方时钟的同步;</p><p>IIC总线硬件结构简单，成本较低，因此在各个领域得到了广泛的应用</p><p>IIC总线是一种多主机总线，连接在IIC总线上的器件分为主机和从机</p><p>主机有权发起和结束一次通信，而从机只能被主机呼叫;</p><p>当总线上有多个主机同时启用总线时，IIC也具备冲突检测和仲裁的功能来防止错误产生;</p><p>每个连接到IIC总线上的器件都有一个唯一的地址(7bit)，且每个器件都可以作为主机也可以作为从机(同一时刻只能有一个主机),总线上的器件增加和删除不影响其他器件正常工作;</p><p> IIC总线在通信时总线上发送数据的器件为发送器，接收数据的器件为接收器;</p><h2 id="IIC总线通信过程"><a href="#IIC总线通信过程" class="headerlink" title="IIC总线通信过程"></a>IIC总线通信过程</h2><ol><li>主机发送起始信号启用总线（其他主机在后面就不会占用总线）</li><li>主机发送一个字节数据（8bit）指明从机地址（7bit）和后续字节的传送方向（1bit）【主机发给从机（0）还是从机发给主机（1）】</li><li>被寻址的从机（各个从机将主机发送的字节高七位地址提取出来与自己的地址比较）发送应答信号回应主机</li><li>发送器（看传送方向确定是主机还是从机）发送一个字节数据</li><li>接收器（看传送方向确定是主机还是从机）发送应答信号回应发送器<br>(循环步骤4、5)</li><li>通信完成后主机发送停止信号释放总线</li></ol><h2 id="IIC总线寻址方式"><a href="#IIC总线寻址方式" class="headerlink" title="IIC总线寻址方式"></a>IIC总线寻址方式</h2><p>IIC总线上传送的数据是广义的，既包括地址，又包括真正的数据</p><p>主机在发送起始信号后必须先发送一个字节的数据，该数据的高7位为从机地址，最低位表示后续字节的传送方向，”0“表示主机发送数据，”1”表示主机接收数据:总线上所有的从机接收到该字节数据后都将这7位地址与自己的地址进行比较，如果相同，则认为自己被主机寻址，然后再根据第8位将自己定为发送器或接收器</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;IIC总线&quot;&gt;&lt;a href=&quot;#IIC总线&quot; class=&quot;headerlink&quot; title=&quot;IIC总线&quot;&gt;&lt;/a&gt;IIC总线&lt;/h1&gt;&lt;h2 id=&quot;IIC总线简介&quot;&gt;&lt;a href=&quot;#IIC总线简介&quot; class=&quot;headerlink&quot; title=</summary>
+      
+    
+    
+    
+    
+    <category term="通信协议" scheme="http://example.com/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>初识UART</title>
