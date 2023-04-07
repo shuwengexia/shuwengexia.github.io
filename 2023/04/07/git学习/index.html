@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Git学习 | shuwengexia'blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="atom.xml" title="shuwengexia'blog" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>Git学习</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2023-04-07T03:08:42.000Z" id="date"> 2023-04-07</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-04-07T03:12:44.220Z" id="updated"> 2023-04-07</time></div></span></div></div><hr><div id="post-content"><h1 id="git学习"><a href="#git学习" class="headerlink" title="git学习"></a>git学习</h1><h2 id="git基本理论"><a href="#git基本理论" class="headerlink" title="git基本理论"></a>git基本理论</h2><p><img src="Users\20676\Desktop\notes\图片\15583568a96b26a220f0b58acc506c4.png"></p>
+<ul>
+<li><p>Workspace：工作区，就是平时存放代码的地方</p>
+</li>
+<li><p>Index&#x2F;Stage：暂存区，用于临时存放你的改动，事实上只是一个文件，保存即将提交到文件列表信息</p>
+</li>
+<li><p>Repository：仓库区（本地仓库），安全存放数据的位置，里面有你提交的所有版本的数据，其中HEAD指向最新放入仓库的版本</p>
+</li>
+<li><p>Remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</p>
+</li>
+</ul>
+<p><img src="Users\20676\Desktop\notes\图片\f3b4ce16c9777ff04a9320435f7981d.png" alt="f3b4ce16c9777ff04a9320435f7981d"></p>
+<h2 id="git工作流程"><a href="#git工作流程" class="headerlink" title="git工作流程"></a>git工作流程</h2><ol>
+<li>在工作目录中添加、修改文件</li>
+<li>将需要进行版本管理的文件放入暂存区域，git add</li>
+<li>将暂存区域的文件提交到git仓库，git commit</li>
+<li>将本地仓库的文件传送到远程仓库，git push</li>
+</ol>
+<p>git管理的文件有三种状态：已修改（modified），已暂存（staged），以提交（committed）</p>
+<p><img src="Users\20676\Desktop\notes\图片\d5a29024d6d183c108aab8bc37f3076.png" alt="d5a29024d6d183c108aab8bc37f3076"></p>
+<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="本地仓库搭建"><a href="#本地仓库搭建" class="headerlink" title="本地仓库搭建"></a>本地仓库搭建</h3><p>创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库</p>
+<ol>
+<li><p>创建全新的仓库，需要GIT管理的根目录执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在当前目录创建一个git代码库</span></span><br><span class="line">$ git init</span><br><span class="line"><span class="comment">#生成一个.git隐藏文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。</p>
+</li>
+</ol>
+<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><ol>
+<li><p>另一种方式是克隆远程目录，由于是将远程服务器上的仓库完全镜像一份至本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#克隆一个项目和它的整个代码历史（版本信息）</span></span><br><span class="line">$ git <span class="built_in">clone</span> [url]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>去gitee或者github上克隆一个测试</p>
+</li>
+</ol>
+<h2 id="git文件操作"><a href="#git文件操作" class="headerlink" title="git文件操作"></a>git文件操作</h2><p>版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看文件状态</span></span><br><span class="line">git status [filename]</span><br><span class="line"><span class="comment">#查看所有文件状态</span></span><br><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><p>Untracked：未跟踪，此文件在文件夹中，但并没有加入到git库，不参与版本控制，通过 git add 将状态变为staged。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add . //将所有文件添加到暂存区，此时文件状态从未追踪变为追踪</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Unmodify：文件已经入库，未修改，即版本库中的文件快照内容与文件夹中完全一致，这种类型的文件也有两个去处，如果它被修改，而变为Modified，如果使用 git rm 移出版本库，则成为Untracked文件 </p>
+</li>
+<li><p>Modified：文件已修改，仅仅是修改，并没有进行其他操作，这个文件也有两个去处，通过 git add 可进入暂存staged状态，使用 git checkout 则丢弃修改过，返回到unmodify状态，这个 git checkout 即从库中取出文件，覆盖当前修改  </p>
+</li>
+<li><p>Staged：暂存状态，执行 git commit 则将修改同步到库中，这时库中的文件和本地文件又变为一致，文件为Unmodify状态，执行 git reset HEAD filename 取消暂存，文件状态为Modified</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;注释内容&quot;</span> //提交暂存区中的内容到本地仓库， -m 提交信息</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#忽略文件</span></span><br><span class="line">*.txt <span class="comment">#忽略所有.txt结尾文件</span></span><br><span class="line">!lib.txt<span class="comment">#除了lib.txt文件，其他忽略</span></span><br><span class="line">/temp<span class="comment">#仅忽略项目根目录下的TODO文件，不包括其他目录temp</span></span><br><span class="line">build/<span class="comment">#忽略build/目录下的所有文件</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">设置本机绑定SSH公钥，实现免密码生成公钥</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+
+<p>将公钥信息public key添加到自己的远程仓库中</p>
+<p>许可证：GPL2.0&#x2F;GPL3.0</p>
+<h2 id="IDEA中集中git"><a href="#IDEA中集中git" class="headerlink" title="IDEA中集中git"></a>IDEA中集中git</h2><ol>
+<li>新建项目，绑定git</li>
+<li>修改文件，使用IDEA操作git</li>
+<li>提交测试</li>
+</ol>
+<h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><p>  git分布中常用指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列出所有本地分支</span></span><br><span class="line">git branch</span><br><span class="line"><span class="comment">#列出所有远程分支</span></span><br><span class="line">git branch -r</span><br><span class="line"><span class="comment">#新建一个分支，但依然停留在当前分支</span></span><br><span class="line">git branch [branch-name]</span><br><span class="line"><span class="comment">#新建一个分支，并切换到该分支</span></span><br><span class="line">git checkout -b [branch]</span><br><span class="line"><span class="comment">#合并指定分支到当前分支</span></span><br><span class="line">git merge [branch]</span><br><span class="line"><span class="comment">#删除分支</span></span><br><span class="line">git branch -d [branch-name]</span><br><span class="line"><span class="comment">#删除远程分支</span></span><br><span class="line">git push origin --delete [branch-name]</span><br><span class="line">git branch -dr [remote/branch] </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="../../../02/10/%E5%88%9D%E8%AF%86IIC/">初识IIC Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a target="_blank" rel="noopener" href="https://github.com/shuwengexia">shuwengexia</a></h1><div id="description"><p>Personal blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">git学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%9F%BA%E6%9C%AC%E7%90%86%E8%AE%BA"><span class="toc-number">1.1.</span> <span class="toc-text">git基本理论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">git工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="toc-number">1.3.</span> <span class="toc-text">git项目搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA"><span class="toc-number">1.3.1.</span> <span class="toc-text">本地仓库搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.2.</span> <span class="toc-text">克隆远程仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">1.4.</span> <span class="toc-text">git文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.4.1.</span> <span class="toc-text">操作流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA%E4%B8%AD%E9%9B%86%E4%B8%ADgit"><span class="toc-number">1.5.</span> <span class="toc-text">IDEA中集中git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%88%86%E6%94%AF"><span class="toc-number">1.6.</span> <span class="toc-text">git分支</span></a></li></ol></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>
